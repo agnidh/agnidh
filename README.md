@@ -17,17 +17,17 @@ The part that matters most is step three. A dashboard that is pretty and wrong i
 
 ## Selected systems
 
-**NPS and customer feedback, read with AI.**
-An NPS score tells you how customers feel. It does not tell you what went wrong or whose job it is to fix it, and we put a lot of work into closing that gap. I built a pipeline that uses an LLM to read every free-text NPS comment and label it: what the complaint is about, how serious it is, the specific failure behind it, and which team owns the fix. A further pass checks the complaints that look "outside our control" and catches the ones that were not, like bad weather on a trip sold in that season. Each complaint is then traced back to the exact hotel, activity, or partner on that booking. The model never changes the score. It only reads the text. The result is a root-cause view that turns a falling score into a short list of fixes, each with an owner.
-
-**Sales performance dashboards (three business units).**
-Leadership needed one honest view of how each sales team was tracking against target, from the business-unit level down to a single seller. I built role-scoped dashboards across all three units and their destinations, so a seller sees their own numbers, a team lead sees their team, and a business head sees the whole unit.
+**Sales performance dashboards (three business units, down to every seller).**
+Everyone in the sales org needed to see how they were tracking against target, from the business head down to the individual seller. I built role-scoped dashboards across all three business units and their destinations: a business head sees the whole unit, a team lead sees their team, and a seller sees their own numbers, including the incentive they are on track to earn, so the target is something they can act on.
 
 **Weekly seller review.**
 Weekly reviews work best when the time goes into coaching, not into preparing numbers. I built a weekly review tool that has the numbers ready in advance and shows, per seller, where the funnel is leaking and what to do about it. It reads the same figures as the business-unit dashboard, so sellers, managers, and leadership all work from one set of numbers.
 
 **Diagnostic deep-dives.**
 A headline number tells you something is wrong. It does not tell you where, for whom, or what to do next. I built drill-downs that go from a team's aggregate all the way down to a single lead's journey: where it stalled, whether it was ever called, how long the first response took, whether an itinerary was sent and then went quiet. The point is to turn "conversion is down" into "these specific leads stalled at this exact step, and here is the one thing to fix." It also surfaces work that is otherwise invisible, like itineraries built while a lead was wrongly marked lost, so effort gets credited and problems get caught early.
+
+**Supply analytics and NPS.**
+The supply team needed to see what we buy, how it performs, and what customers think of it. I built a supply dashboard on live booking data that shows which hotels, activities, and partners are actually sold and used, so contracting decisions rest on real demand. It also reads every NPS comment with an LLM, labels the issue and the team that owns the fix, and traces it to the exact hotel or activity, so a falling score becomes a short list of fixes.
 
 **Leadership view.**
 The CXO team needed revenue, bookings, and margins in one place, current, without asking anyone to pull them. I built the executive view that every CXO now uses to track the business.
@@ -43,9 +43,6 @@ We rolled out a new dialer and a messaging tool across the sales team, and I man
 
 **Funnel performance reporting.**
 Different teams were quoting different conversion rates because they were counting the funnel differently. I built one funnel report with a single agreed definition, so every rate on every surface reconciles.
-
-**Supply analytics.**
-The supply team needed a clear view of what we buy and how it performs. I built a supply dashboard on live booking data that shows which hotels and activities are actually sold and used, how contracted inventory is being used, and how each partner performs, so contracting decisions rest on real demand rather than guesswork.
 
 **Data-quality audits.**
 Some of the most useful work is invisible. I built audits that catch silent problems before they reach a report, like deals back-entered against the wrong date, or two systems that quietly disagree by exactly five and a half hours.
