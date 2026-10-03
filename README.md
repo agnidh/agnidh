@@ -1,6 +1,6 @@
 # Hi, I'm Agnidh Ghosh
 
-I work in the founder's office at 30 Sundays, a travel tech startup, where I own analytics and program management end to end. I take the questions leadership and the sales org actually ask, decide what gets built and in what order, turn them into numbers people can trust, and ship the tools that put those numbers in front of the right person while a decision is still open.
+I work in the founder's office at 30 Sundays, a travel tech startup backed by Info Edge and Bessemer Venture Partners, where I own revenue analytics and program management end to end. I take the questions leadership and the sales org actually ask, decide what gets built and in what order, turn them into numbers people can trust, and ship the tools that put those numbers in front of the right person while a decision is still open.
 
 Below are selected systems I have designed, built, and run in production. The code and the data stay private. What follows is a description of the work and the thinking behind it.
 
@@ -17,6 +17,9 @@ The part that matters most is step three. A dashboard that is pretty and wrong i
 
 ## Selected systems
 
+**NPS and customer feedback, read with AI.**
+An NPS score tells you how customers feel. It does not tell you what went wrong or whose job it is to fix it, and we put a lot of work into closing that gap. I built a pipeline that uses an LLM to read every free-text NPS comment and label it: what the complaint is about, how serious it is, the specific failure behind it, and which team owns the fix. A further pass checks the complaints that look "outside our control" and catches the ones that were not, like bad weather on a trip sold in that season. Each complaint is then traced back to the exact hotel, activity, or partner on that booking. The model never changes the score. It only reads the text. The result is a root-cause view that turns a falling score into a short list of fixes, each with an owner.
+
 **Sales performance dashboards (three business units).**
 Leadership needed one honest view of how each sales team was tracking against target, from the business-unit level down to a single seller. I built role-scoped dashboards across all three units and their destinations, so a seller sees their own numbers, a team lead sees their team, and a business head sees the whole unit.
 
@@ -27,7 +30,7 @@ Weekly reviews work best when the time goes into coaching, not into preparing nu
 A headline number tells you something is wrong. It does not tell you where, for whom, or what to do next. I built drill-downs that go from a team's aggregate all the way down to a single lead's journey: where it stalled, whether it was ever called, how long the first response took, whether an itinerary was sent and then went quiet. The point is to turn "conversion is down" into "these specific leads stalled at this exact step, and here is the one thing to fix." It also surfaces work that is otherwise invisible, like itineraries built while a lead was wrongly marked lost, so effort gets credited and problems get caught early.
 
 **Leadership view.**
-The founders wanted revenue, bookings, and margins in one place, current, without asking anyone to pull it. I built an executive view that stays live and presents the org at the altitude leadership reads at.
+The CXO team needed revenue, bookings, and margins in one place, current, without asking anyone to pull them. I built the executive view that every CXO now uses to track the business.
 
 **Lead allocation and seller configuration.**
 Leads were being distributed by hand, which does not scale and is hard to audit. I built an allocation system with per-seller capacity, a configuration surface team leads manage themselves, and a ticketing flow so every change is logged and reversible.
@@ -41,8 +44,8 @@ We rolled out a new dialer and a messaging tool across the sales team, and I man
 **Funnel performance reporting.**
 Different teams were quoting different conversion rates because they were counting the funnel differently. I built one funnel report with a single agreed definition, so every rate on every surface reconciles.
 
-**Supply and experience analytics.**
-The supply side needed its own view: what is contracted, what customers actually experience, and where feedback is pointing. I built the supply dashboards and a control tower for the CBO.
+**Supply analytics.**
+The supply team needed a clear view of what we buy and how it performs. I built a supply dashboard on live booking data that shows which hotels and activities are actually sold and used, how contracted inventory is being used, and how each partner performs, so contracting decisions rest on real demand rather than guesswork.
 
 **Data-quality audits.**
 Some of the most useful work is invisible. I built audits that catch silent problems before they reach a report, like deals back-entered against the wrong date, or two systems that quietly disagree by exactly five and a half hours.
@@ -52,7 +55,7 @@ Some of the most useful work is invisible. I built audits that catch silent prob
 - **Data:** PostgreSQL, BigQuery, MongoDB
 - **Analysis and BI:** Python (pandas), Metabase
 - **Building and shipping:** Next.js, Python services, deployed on Vercel
-- **The unglamorous glue:** a lot of SQL, a lot of reconciliation, and notes written down so the next person does not relearn it the hard way
+- **The unglamorous glue:** SQL and documentation
 
 ## Reach me
 
